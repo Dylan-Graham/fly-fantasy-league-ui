@@ -14,9 +14,10 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import "./FlyAppBar.css";
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
-export const FlyAppBar = () => {
+export const NavBar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -141,9 +142,11 @@ export const FlyAppBar = () => {
             <IconButton size="large" aria-label="picks" color="inherit">
               <LocalActivityIcon />
             </IconButton>
-            <IconButton size="large" aria-label="leaderboard" color="inherit">
-              <LeaderboardIcon />
-            </IconButton>
+            <Link to="/leaderboard" className="link">
+              <IconButton size="large" aria-label="leaderboard" color="inherit">
+                <LeaderboardIcon />
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               aria-label="show 3 new notifications"

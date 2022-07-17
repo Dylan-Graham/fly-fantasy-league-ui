@@ -1,16 +1,23 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import { Home } from "./components/Home";
 import { Leaderboard } from "./components/Leaderboard";
-import { FlyAppBar } from "./components/FlyAppBar";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <FlyAppBar></FlyAppBar>
-        <Leaderboard></Leaderboard>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar></NavBar>
+        <div className="content">
+          <Switch>
+            <Route path="/" component={Home} exact={true} />
+            <Route path="/leaderboard" component={Leaderboard} exact={true} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
