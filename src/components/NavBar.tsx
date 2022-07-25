@@ -38,6 +38,10 @@ export const NavBar = () => {
     handleMobileMenuClose();
   };
 
+  const handleAccountClick = () => {
+    handleMenuClose();
+  };
+
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -118,7 +122,7 @@ export const NavBar = () => {
 
   return (
     <Box className="TopBox">
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: "#57bd96" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -139,23 +143,16 @@ export const NavBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" aria-label="picks" color="inherit">
-              <LocalActivityIcon />
-            </IconButton>
+            <Link to="/picks" className="link">
+              <IconButton size="large" aria-label="picks" color="inherit">
+                <LocalActivityIcon />
+              </IconButton>
+            </Link>
             <Link to="/leaderboard" className="link">
               <IconButton size="large" aria-label="leaderboard" color="inherit">
                 <LeaderboardIcon />
               </IconButton>
             </Link>
-            <IconButton
-              size="large"
-              aria-label="show 3 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={3} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               size="large"
               edge="end"

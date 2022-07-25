@@ -1,5 +1,11 @@
 import React from "react";
 
 export const Home = () => {
-  return <div>Home page...</div>;
+  return (
+    <div>
+      <p>Leaderboard</p>
+      <p>Pick A team</p>
+      <p>Create Or Join A League</p>
+    </div>
+  );
 };
