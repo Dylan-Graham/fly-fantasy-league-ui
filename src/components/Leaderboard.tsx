@@ -24,10 +24,10 @@ const rows = [
 export const Leaderboard = () => {
   return (
     <div>
-      <h1>Leaderboard</h1>
+      <h2>Leaderboard</h2>
       <div className="leaderboards">
-        <h4 className="leaderboards-title">Overall</h4>
-        <h4 className="leaderboards-title">By Event</h4>
+        <p className="leaderboards-title">Overall</p>
+        <p className="leaderboards-title">By Event</p>
       </div>
       <TableContainer component={Paper} sx={{ maxWidth: 800 }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

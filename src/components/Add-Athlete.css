@@ -1,0 +1,14 @@
+.add-athlete-button {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.add-athlete-button:last-of-type {
+    margin-bottom: 80px;
+}
+
+.add-athlete-text {
+    margin-left: 30px;
+}
