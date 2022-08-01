@@ -12,3 +12,13 @@
 .add-athlete-text {
     margin-left: 30px;
 }
+
+.athletes {
+    display: flex;
+    flex-direction: column;
+}
+
+.athleteButton {
+    margin: 10px !important;
+    width: 500px;
+}

@@ -1,10 +1,10 @@
 .picks {
     margin-top: 64px;
     width: 50%;
-    border-radius: 20px;
-    background: #e0e0e0;
-    box-shadow:  20px 20px 60px #bebebe,
-             -20px -20px 60px #ffffff;
+    border-radius: 50px;
+background: linear-gradient(145deg, #2b2f38, #24282f);
+box-shadow:  20px 20px 60px #22252c,
+             -20px -20px 60px #2e333c;
 }
 
 .hr {
