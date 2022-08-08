@@ -7,6 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { athlete } from "./Picks";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -16,11 +17,6 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-interface athlete {
-  id: string;
-  name: string;
-}
 
 export const AddAthlete = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -53,15 +49,29 @@ export const AddAthlete = (props: any) => {
         <DialogTitle id="pick-dialog-title">{"Pick an Athlete"}</DialogTitle>
         <DialogContent>
           <div className="athletes">
+            <div className="column-header prof">
+              <div className="cell"></div>
+              <div className="cell-name">Name</div>
+              <div className="cell">Position</div>
+              <div className="cell">Points</div>
+            </div>
             {athletes.map((athlete: athlete) => (
-              <Button
-                key={athlete.id}
-                variant="outlined"
-                className="athleteButton"
-                onClick={() => handleClose(athlete.name)}
-              >
-                {athlete.name}
-              </Button>
+              <div>
+                <a
+                  key={athlete.id}
+                  onClick={() => handleClose(athlete.name)}
+                  className="profile"
+                >
+                  <img
+                    src={athlete.url}
+                    alt={athlete.name}
+                    className="profile-picture"
+                  ></img>
+                  <div className="cell-name">{athlete.name}</div>
+                  <div className="cell">{athlete.position} </div>
+                  <div className="cell">{athlete.score}</div>
+                </a>
+              </div>
             ))}
           </div>
         </DialogContent>

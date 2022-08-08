@@ -5,29 +5,116 @@ import { AddAthlete } from "./Add-Athlete";
 export interface athlete {
   id: number;
   name: string;
+  position: number;
+  score: number;
+  url: string;
 }
 
 const tierA: athlete[] = [
-  { id: 1, name: "Andrea Principe" },
-  { id: 2, name: "Giel Vlugte" },
-  { id: 3, name: "Luca Ceruti" },
-  { id: 4, name: "Lorenzo Casati" },
+  {
+    id: 1,
+    name: "Andrea Principe",
+    position: 1,
+    score: 500,
+    url: "/assets/images/andrea_principe.png",
+  },
+  {
+    id: 2,
+    name: "Giel Vlugte",
+    position: 1,
+    score: 500,
+    url: "/assets/images/giel_vlugte.png",
+  },
+  {
+    id: 3,
+    name: "Luca Ceruti",
+    position: 1,
+    score: 500,
+    url: "/assets/images/luca_ceruti.png",
+  },
+  {
+    id: 4,
+    name: "Lorenzo Casati",
+    position: 1,
+    score: 500,
+    url: "/assets/images/lorenzo_casati.png",
+  },
 ];
 
 const tierB = [
-  { id: 1, name: "Cohan Van Djik" },
-  { id: 2, name: "Stig Hoefnagel" },
-  { id: 3, name: "Milan Lukic" },
-  { id: 4, name: "Ross-Dillon Player" },
-  { id: 5, name: "Jett Bradshaw" },
+  {
+    id: 1,
+    name: "Cohan Van Djik",
+    position: 1,
+    score: 500,
+    url: "/assets/images/cohan_van_djik.png",
+  },
+  {
+    id: 2,
+    name: "Stig Hoefnagel",
+    position: 1,
+    score: 500,
+    url: "/assets/images/stig_hoefnagel.png",
+  },
+  {
+    id: 3,
+    name: "Milan Lukic",
+    position: 1,
+    score: 500,
+    url: "/assets/images/milan_lukic.png",
+  },
+  {
+    id: 4,
+    name: "Ross-Dillon Player",
+    position: 1,
+    score: 500,
+    url: "/assets/images/ross_dillon_player.png",
+  },
+  {
+    id: 5,
+    name: "Jett Bradshaw",
+    position: 1,
+    score: 500,
+    url: "/assets/images/jett_bradshaw.png",
+  },
 ];
 
 const tierC = [
-  { id: 1, name: "Robby James" },
-  { id: 2, name: "Julian Zens" },
-  { id: 3, name: "Dylan Graham" },
-  { id: 4, name: "Aron Rosslee" },
-  { id: 5, name: "Rob Kritzinger" },
+  {
+    id: 1,
+    name: "Robby James",
+    position: 1,
+    score: 500,
+    url: "/assets/images/robby_james.png",
+  },
+  {
+    id: 2,
+    name: "Julian Zens",
+    position: 1,
+    score: 500,
+    url: "/assets/images/julian_zens.png",
+  },
+  {
+    id: 3,
+    name: "Dylan Graham",
+    position: 1,
+    score: 500,
+    url: "/assets/images/dylan_graham.png",
+  },
+  {
+    id: 4,
+    name: "Aron Rosslee",
+    position: 1,
+    score: 500,
+    url: "/assets/images/aron_rossless.png",
+  },
+  {
+    id: 5,
+    name: "Rob Kritzinger",
+    position: 1,
+    score: 500,
+    url: "/assets/images/rob_kritzinger.png",
+  },
 ];
 
 export const Picks = () => {

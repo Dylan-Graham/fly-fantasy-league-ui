@@ -22,3 +22,43 @@
     margin: 10px !important;
     width: 500px;
 }
+
+.column-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px
+}
+
+.profile-picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+.profile {
+    width: 500px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border: 5px #57bd96 solid;
+    border-radius: 100px;
+    background: #282c34;
+    color: white;
+}
+
+.profile:hover {
+    filter: brightness(130%);
+}
+
+.cell-name {
+    margin: 25px;
+    width: 150px;
+}
+
+.cell {
+    margin: 25px;
+    width: 50px;
+    text-align: center;
+}
