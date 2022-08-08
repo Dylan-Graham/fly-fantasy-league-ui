@@ -1,5 +1,5 @@
 import React from "react";
-import "./Add-Athlete.css";
+import "./Athlete-Picker.css";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import Dialog from "@mui/material/Dialog";
@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const AddAthlete = (props: any) => {
+export const AthletePicker = (props: any) => {
   const [open, setOpen] = React.useState(false);
   const [athleteName, setAthleteName] = React.useState("Add Athlete");
 
