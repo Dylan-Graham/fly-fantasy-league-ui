@@ -18,27 +18,48 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const AthletePicker = (props: any) => {
+export const AthletePicker = ({
+  athletes,
+  tierChanger: tierChanger,
+}: {
+  athletes: athlete[];
+  tierChanger: any;
+}) => {
   const [open, setOpen] = React.useState(false);
-  const [athleteName, setAthleteName] = React.useState("Add Athlete");
+  const [selectedAthlete, setSelectedAthlete] = React.useState<athlete>();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = (athleteName: string) => {
-    setAthleteName(athleteName);
+  const handleClose = () => {
     setOpen(false);
   };
 
-  const athletes = props.athletes;
+  const handleSubmit = (athlete: athlete) => {
+    setSelectedAthlete(athlete);
+    athlete.available = false;
+
+    // add old athlete pick back...
+    if (selectedAthlete != null) {
+      selectedAthlete.available = true;
+    }
+
+    tierChanger(athletes);
+    handleClose();
+  };
 
   return (
     <div className="add-athlete-button">
       <Button variant="outlined" size="small" onClick={handleClickOpen}>
         <AddIcon fontSize="small" />
       </Button>
-      <p className="add-athlete-text">{athleteName}</p>
+      {selectedAthlete == null ? (
+        <p className="add-athlete-text">Add Athlete</p>
+      ) : (
+        <p className="add-athlete-text">{selectedAthlete.name}</p>
+      )}
+
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -55,24 +76,28 @@ export const AthletePicker = (props: any) => {
               <div className="cell">Position</div>
               <div className="cell">Points</div>
             </div>
-            {athletes.map((athlete: athlete) => (
-              <div>
-                <a
-                  key={athlete.id}
-                  onClick={() => handleClose(athlete.name)}
-                  className="profile"
-                >
-                  <img
-                    src={athlete.url}
-                    alt={athlete.name}
-                    className="profile-picture"
-                  ></img>
-                  <div className="cell-name">{athlete.name}</div>
-                  <div className="cell">{athlete.position} </div>
-                  <div className="cell">{athlete.score}</div>
-                </a>
-              </div>
-            ))}
+            {athletes.map((athlete: athlete) =>
+              !athlete.available ? (
+                <div></div>
+              ) : (
+                <div>
+                  <button
+                    key={athlete.id}
+                    onClick={() => handleSubmit(athlete)}
+                    className="profile"
+                  >
+                    <img
+                      src={athlete.url}
+                      alt={athlete.name}
+                      className="profile-picture"
+                    ></img>
+                    <div className="cell-name">{athlete.name}</div>
+                    <div className="cell">{athlete.position} </div>
+                    <div className="cell">{athlete.score}</div>
+                  </button>
+                </div>
+              )
+            )}
           </div>
         </DialogContent>
       </Dialog>

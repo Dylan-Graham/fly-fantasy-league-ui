@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Andrea Principe",
+    "position": 1,
+    "score": 450,
+    "url": "/assets/images/andrea_principe.png",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Giel Vlugte",
+    "position": 1,
+    "score": 450,
+    "url": "/assets/images/giel_vlugte.png",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Stijn Mul",
+    "position": 2,
+    "score": 192,
+    "url": "/assets/images/stijn_mul.png",
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "Lorenzo Casati",
+    "position": 4,
+    "score": 178,
+    "url": "/assets/images/lorenzo_casati.png",
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "Jason van der Spuy",
+    "position": 4,
+    "score": 178,
+    "url": "/assets/images/jason_van_der_spuy.png",
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "Luca Ceruti",
+    "position": 4,
+    "score": 178,
+    "url": "/assets/images/luca_ceruti.png",
+    "available": true
+  }
+]

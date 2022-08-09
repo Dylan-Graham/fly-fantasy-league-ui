@@ -1,0 +1,90 @@
+[
+  {
+    "id": 18,
+    "name": "Stig Hoefnagel",
+    "position": 18,
+    "score": 32,
+    "url": "/assets/images/stig_hoefnagel.png",
+    "available": true
+  },
+  {
+    "id": 19,
+    "name": "Xavier Kain",
+    "position": 18,
+    "score": 32,
+    "url": "/assets/images/xavier_kain.png",
+    "available": true
+  },
+  {
+    "id": 20,
+    "name": "Jan Zoon",
+    "position": 18,
+    "score": 32,
+    "url": "/assets/images/jan_zoon.png",
+    "available": true
+  },
+  {
+    "id": 21,
+    "name": "Simon Bruhn",
+    "position": 18,
+    "score": 32,
+    "url": "/assets/images/simon_bruhn.png",
+    "available": true
+  },
+  {
+    "id": 22,
+    "name": "Josué Ferreira",
+    "position": 22,
+    "score": 21,
+    "url": "/assets/images/josue_ferreira.png",
+    "available": true
+  },
+  {
+    "id": 23,
+    "name": "Jurre Bruijn",
+    "position": 22,
+    "score": 21,
+    "url": "/assets/images/jurre_bruijn.png",
+    "available": true
+  },
+  {
+    "id": 24,
+    "name": "Sanchez Marius",
+    "position": 22,
+    "score": 21,
+    "url": "/assets/images/sanchez_marius.png",
+    "available": true
+  },
+  {
+    "id": 25,
+    "name": "Valentin H Thomas",
+    "position": 22,
+    "score": 21,
+    "url": "/assets/images/valentin_h_thomas.png",
+    "available": true
+  },
+  {
+    "id": 26,
+    "name": "Michiel Schipper",
+    "position": 22,
+    "score": 21,
+    "url": "/assets/images/michiel_schipper.png",
+    "available": true
+  },
+  {
+    "id": 27,
+    "name": "Joss de Pfyffer",
+    "position": 27,
+    "score": 14,
+    "url": "/assets/images/joss_de_pfyffer.png",
+    "available": true
+  },
+  {
+    "id": 28,
+    "name": "Airton Cozzolino",
+    "position": 27,
+    "score": 14,
+    "url": "/assets/images/airton_cozzolino.png",
+    "available": true
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "id": 7,
+    "name": "Liam Whaley",
+    "position": 7,
+    "score": 160,
+    "url": "/assets/images/liam_whaley.png",
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "Cohan Van Djik",
+    "position": 8,
+    "score": 154,
+    "url": "/assets/images/cohan_van_dijk.png",
+    "available": true
+  },
+  {
+    "id": 9,
+    "name": "Jeremy Burlando",
+    "position": 8,
+    "score": 154,
+    "url": "/assets/images/jeremy_burlando.png",
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "Evan Klijn",
+    "position": 10,
+    "score": 128,
+    "url": "/assets/images/evan_klijn.png",
+    "available": true
+  },
+  {
+    "id": 11,
+    "name": "Timo Boerseman",
+    "position": 11,
+    "score": 118,
+    "url": "/assets/images/timo_boerseman.png",
+    "available": true
+  },
+  {
+    "id": 12,
+    "name": "Edgar Ulrich",
+    "position": 12,
+    "score": 71,
+    "url": "/assets/images/edgar_ulrich.png",
+    "available": true
+  },
+  {
+    "id": 13,
+    "name": "Joris Herrewijnen",
+    "position": 12,
+    "score": 71,
+    "url": "/assets/images/joris_herrewijnen.png",
+    "available": true
+  },
+  {
+    "id": 14,
+    "name": "Antonin Rangin",
+    "position": 14,
+    "score": 47,
+    "url": "/assets/images/antonin_rangin.png",
+    "available": true
+  },
+  {
+    "id": 15,
+    "name": "Beto Gomez",
+    "position": 14,
+    "score": 47,
+    "url": "/assets/images/beto_gomez.png",
+    "available": true
+  },
+  {
+    "id": 16,
+    "name": "James Carew",
+    "position": 14,
+    "score": 47,
+    "url": "/assets/images/james_carew.png",
+    "available": true
+  },
+  {
+    "id": 17,
+    "name": "Clément Huot",
+    "position": 17,
+    "score": 46,
+    "url": "/assets/images/clement_huot.png",
+    "available": true
+  }
+]
