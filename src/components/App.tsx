@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import { Login } from "./components/Login";
-import { Leaderboard } from "./components/Leaderboard";
-import { NavBar } from "./components/NavBar";
-import { Picks } from "./components/Picks";
-import { Home } from "./components/Home";
-import { Account } from "./components/Account";
+import { Login } from "./Login";
+import { Leaderboard } from "./Leaderboard";
+import { NavBar } from "./NavBar";
+import { Picks } from "./Picks";
+import { Home } from "./Home";
+import { Account } from "./Account";
 
 function App() {
   return (

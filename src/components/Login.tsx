@@ -1,6 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import React from "react";
 import "./Login.css";
-import TextField from "@mui/material/TextField";
+import { LoginButton } from "./Login-Button";
+import { Profile } from "./Profile";
+import { css } from "@emotion/react";
 
 export const Login = () => {
   return (
@@ -10,30 +13,17 @@ export const Login = () => {
         <h4>Pick Your Team and Join The Ranks!</h4>
       </div>
       <div className="card white">
-        <button className="button sign-up">Sign Up</button>
-        <button className="button sign-in">Sign In</button>
+        <div css={buttons}>
+          <LoginButton></LoginButton>
+        </div>
         <div></div>
-        <div className="sign-title">
-          <h5 className="sign-title-padding">Sign Up</h5>
-          <h5 className="sign-title-padding">Sign In</h5>
-        </div>
-        <div className="form">
-          <label>FULL NAME</label>
-          <TextField
-            id="outlined-basic"
-            label="Enter your full name"
-            variant="outlined"
-          />
-          <label>PASSWORD</label>
-          <TextField id="outlined-basic" label="*******" variant="outlined" />
-          <label>EMAIL</label>
-          <TextField
-            id="outlined-basic"
-            label="Your email goes here"
-            variant="outlined"
-          />
-        </div>
+        <Profile></Profile>
       </div>
     </div>
   );
 };
+
+const buttons = css`
+  display: flex;
+  justify-content: space-evenly;
+`;

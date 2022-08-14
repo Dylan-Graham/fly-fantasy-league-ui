@@ -20,7 +20,7 @@ const Transition = React.forwardRef(function Transition(
 
 export const AthletePicker = ({
   athletes,
-  tierChanger: tierChanger,
+  tierChanger,
 }: {
   athletes: athlete[];
   tierChanger: any;
