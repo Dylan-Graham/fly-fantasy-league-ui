@@ -1,10 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import "@fontsource/lato/300.css";
 import { Auth0Provider } from "@auth0/auth0-react";
+
+const domain = process.env.AUTHO_DOMAIN || "";
+const clientId = process.env.AUTHO_CLIENTID || "";
+console.log(domain);
+console.log(clientId);
+console.log(process.env);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,8 +18,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-zhzk6jkh.us.auth0.com"
-      clientId="dXDGAMBf3CVlTSxXuyG47S7AupvFG7tC"
+      domain={domain}
+      clientId={clientId}
       redirectUri={window.location.origin}
     >
       <App />
