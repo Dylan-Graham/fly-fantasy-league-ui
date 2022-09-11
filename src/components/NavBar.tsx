@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -6,13 +7,13 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { css } from "@emotion/react";
 
 export const NavBar = () => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -78,24 +79,21 @@ export const NavBar = () => {
 
   return (
     <Box className="TopBox">
-      <AppBar position="static" style={{ background: "#57bd96" }}>
+      <AppBar position="static" style={{ background: "#2fe0b5" }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h5"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              textDecoration: "none",
+            }}
+            css={link}
           >
-            Fly Fantasy League
+            <Link to="/" className="link">
+              Fly Fantasy League
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -138,3 +136,7 @@ export const NavBar = () => {
     </Box>
   );
 };
+
+const link = css`
+  text-decoration: none; !important
+`;

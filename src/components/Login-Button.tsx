@@ -5,9 +5,11 @@ import { css } from "@emotion/react";
 import { LogoutButton } from "./Logout-Button";
 
 export const LoginButton = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
   if (isAuthenticated) {
+    console.log("user: ", user);
+    // send user email to API (sign-up or login)
     return <LogoutButton></LogoutButton>;
   }
 
@@ -20,7 +22,7 @@ export const LoginButton = () => {
 
 const buttonStyle = css`
   color: white;
-  background-color: #57bd96;
+  background-color: #2fe0b5;
   border: none;
   width: 150px;
   height: 35px;

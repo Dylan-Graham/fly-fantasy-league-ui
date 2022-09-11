@@ -17,7 +17,7 @@
 }
 
 .green {
-    background-color: #57bd96;
+    background-color: #2fe0b5;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     color: white;
@@ -25,7 +25,7 @@
 
 .button {
     color: white;
-    background-color: #57bd96;
+    background-color: #2fe0b5;
     border: none;
     width: 100px;
     height: 70px;

@@ -17,7 +17,7 @@ export const LogoutButton = () => {
 
 const buttonStyle = css`
   color: white;
-  background-color: #57bd96;
+  background-color: #2fe0b5;
   border: none;
   width: 150px;
   height: 35px;
