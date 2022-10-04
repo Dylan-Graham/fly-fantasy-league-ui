@@ -5,11 +5,9 @@ import { css } from "@emotion/react";
 import { LogoutButton } from "./Logout-Button";
 
 export const LoginButton = () => {
-  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   if (isAuthenticated) {
-    console.log("user: ", user);
-    // send user email to API (sign-up or login)
     return <LogoutButton></LogoutButton>;
   }
 

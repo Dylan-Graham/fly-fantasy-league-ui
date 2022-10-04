@@ -6,6 +6,7 @@ import AthletesTierB from "../data/AthletesTierB.json";
 import AthletesTierC from "../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
 import { http_post } from "../lib";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export interface athlete {
   id: number;
@@ -20,10 +21,15 @@ export const Picks = () => {
   const [tierA, setTierA] = React.useState<athlete[]>(AthletesTierA);
   const [tierB, setTierB] = React.useState<athlete[]>(AthletesTierB);
   const [tierC, setTierC] = React.useState<athlete[]>(AthletesTierC);
+  const { user, isAuthenticated } = useAuth0();
 
   const pickUrl = "/picks";
 
   const collectPicks = () => {
+    if (!isAuthenticated) {
+      console.error("User not authenticated");
+    }
+
     const tierAPicks = [];
     const tierBPicks = [];
     const tierCPicks = [];
@@ -63,6 +69,7 @@ export const Picks = () => {
       // TODO: add username in here...
 
       const picks = {
+        user: user?.email,
         tierA: tierAPicks,
         tierB: tierBPicks,
         tierC: tierCPicks,

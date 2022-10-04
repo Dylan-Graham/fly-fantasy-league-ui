@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
 import "./Login.css";
 import { LoginButton } from "./Login-Button";
 import { Profile } from "./Profile";

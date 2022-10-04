@@ -13,12 +13,10 @@ export const Profile = () => {
   if (isAuthenticated) {
     return (
       <div>
+        <h1>Welcome back!</h1>
         <img src={user?.picture} alt={user?.name} css={imageStyle} />
         <h2>{user?.name}</h2>
         <p>{user?.email}</p>
-        <a href="https://auth0.com/docs/quickstart/spa/react/02-calling-an-api">
-          Next steps: API
-        </a>
       </div>
     );
   }
