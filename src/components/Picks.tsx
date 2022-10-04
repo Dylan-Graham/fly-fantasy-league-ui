@@ -68,13 +68,15 @@ export const Picks = () => {
     if (validPick) {
       // TODO: add username in here...
 
-      const picks = {
+      const payload = {
         user: user?.email,
-        tierA: tierAPicks,
-        tierB: tierBPicks,
-        tierC: tierCPicks,
+        picks: {
+          tierA: tierAPicks,
+          tierB: tierBPicks,
+          tierC: tierCPicks,
+        },
       };
-      sendPicks(picks);
+      sendPicks(payload);
     }
 
     // TODO: dialog, complete your picks!
