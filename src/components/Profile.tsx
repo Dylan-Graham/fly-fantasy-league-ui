@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { css } from "@emotion/react";
+import { imageStyle } from "../style";
 
 export const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -23,9 +22,3 @@ export const Profile = () => {
 
   return <div></div>;
 };
-
-const imageStyle = css`
-  border-radius: 100px;
-  height: 80px;
-  width: 80px;
-`;

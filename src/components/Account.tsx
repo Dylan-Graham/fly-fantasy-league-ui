@@ -1,17 +1,24 @@
-import React from "react";
-import Button from "@mui/material/Button";
+/** @jsxImportSource @emotion/react */
 import "./Account.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import { flexRow, imageStyle, leftAlignText } from "../style";
 
 export const Account = () => {
-  return (
-    <div>
-      <div className="account">
-        <p className="text">Name: Alice Bob</p>
-        <p className="text">Email: a.bob@gmail.com</p>
+  const { user, isAuthenticated } = useAuth0();
+
+  if (isAuthenticated) {
+    return (
+      <div>
+        <h1 css={leftAlignText}>Account</h1>
+        <div css={flexRow}>
+          <h2>Welcome back!</h2>
+          <img src={user?.picture} alt={user?.name} css={imageStyle} />
+        </div>
+        <p css={leftAlignText}>Name: {user?.nickname}</p>
+        <p css={leftAlignText}>Email: {user?.email}</p>
       </div>
-      <Button variant="contained" color="error" className="deactivate-button">
-        Deactivate account
-      </Button>
-    </div>
-  );
+    );
+  }
+
+  return <div></div>;
 };
