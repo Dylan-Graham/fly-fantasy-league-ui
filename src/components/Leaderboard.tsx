@@ -52,7 +52,7 @@ export const Leaderboard = () => {
                 key={user.email}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell>{user.rank}</TableCell>
+                <TableCell>{user.rank || "Unranked"}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.picks != null ? "Yes" : "No"}</TableCell>
                 <TableCell align="right">{user.points || 0}</TableCell>
