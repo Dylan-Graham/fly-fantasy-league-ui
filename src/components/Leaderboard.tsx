@@ -47,22 +47,17 @@ export const Leaderboard = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => {
-              if (user.rank == null) {
-                return <div></div>;
-              }
-              return (
-                <TableRow
-                  key={user.email}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell>{user.rank}</TableCell>
-                  <TableCell>{user.name}</TableCell>
-                  <TableCell>{user.picks != null ? "Yes" : "No"}</TableCell>
-                  <TableCell align="right">{user.points || 0}</TableCell>
-                </TableRow>
-              );
-            })}
+            {users.map((user) => (
+              <TableRow
+                key={user.email}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell>{user.rank}</TableCell>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.picks != null ? "Yes" : "No"}</TableCell>
+                <TableCell align="right">{user.points || 0}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
