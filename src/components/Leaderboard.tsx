@@ -1,4 +1,3 @@
-import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,25 +9,12 @@ import "./Leaderboard.css";
 import { http_get } from "../lib";
 import { useEffect, useState } from "react";
 
-function createData(username: string, points: number, rank: number) {
-  return { username, points, rank };
-}
-
-const rows = [
-  createData("Your Username", 22, 5),
-  createData("Maguina", 45, 1),
-  createData("Donver", 33, 2),
-  createData("FrothigRothig", 33, 3),
-  createData("Melkskom", 27, 4),
-  createData("Rob", 19, 6),
-];
-
 interface user {
   email: string;
   points: number;
   rank: number;
-  first_name: string;
-  last_name: string;
+  name: string;
+  picks: any[];
 }
 
 export const Leaderboard = () => {
@@ -55,23 +41,28 @@ export const Leaderboard = () => {
           <TableHead>
             <TableRow>
               <TableCell>Rank</TableCell>
-              <TableCell>Team</TableCell>
+              <TableCell>User</TableCell>
+              <TableCell>Active pick</TableCell>
               <TableCell align="right">Points</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
-              <TableRow
-                key={user.email}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell>{user.rank}</TableCell>
-                <TableCell>
-                  {user.first_name} {user.last_name}
-                </TableCell>
-                <TableCell align="right">{user.points}</TableCell>
-              </TableRow>
-            ))}
+            {users.map((user) => {
+              if (user.rank == null) {
+                return <div></div>;
+              }
+              return (
+                <TableRow
+                  key={user.email}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{user.rank}</TableCell>
+                  <TableCell>{user.name}</TableCell>
+                  <TableCell>{user.picks != null ? "Yes" : "No"}</TableCell>
+                  <TableCell align="right">{user.points || 0}</TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
