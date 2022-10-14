@@ -33,6 +33,14 @@ export const Leaderboard = () => {
     getRanking();
   }, []);
 
+  if (users.length === 0) {
+    return (
+      <div>
+        <h2>Leaderboard</h2>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h2>Leaderboard</h2>
