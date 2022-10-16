@@ -21,11 +21,7 @@ const sendUser = async (user: User) => {
 };
 
 export const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+  const { user, isAuthenticated } = useAuth0();
 
   if (!user) {
     return <div></div>;

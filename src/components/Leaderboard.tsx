@@ -19,6 +19,7 @@ interface user {
 
 export const Leaderboard = () => {
   const [users, setUsers] = useState<user[]>([]);
+  const isLoaded = users.length > 0;
 
   useEffect(() => {
     const getRanking = async () => {
@@ -44,7 +45,11 @@ export const Leaderboard = () => {
   return (
     <div>
       <h2>Leaderboard</h2>
-      <TableContainer component={Paper} sx={{ maxWidth: 800 }}>
+      <TableContainer
+        component={Paper}
+        sx={{ maxWidth: 800 }}
+        style={isLoaded ? mountedStyle : unmountedStyle}
+      >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -71,4 +76,10 @@ export const Leaderboard = () => {
       </TableContainer>
     </div>
   );
+};
+
+const mountedStyle = { animation: "inAnimation 500ms ease-in" };
+const unmountedStyle = {
+  animation: "outAnimation 500ms ease-out",
+  animationFillMode: "forwards",
 };
