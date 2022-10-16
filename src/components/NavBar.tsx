@@ -14,8 +14,10 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { css } from "@emotion/react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const NavBar = () => {
+  const { isAuthenticated } = useAuth0();
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
 
@@ -97,26 +99,38 @@ export const NavBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link to="/picks" className="link">
-              <IconButton size="large" aria-label="picks" color="inherit">
-                <LocalActivityIcon />
-              </IconButton>
-            </Link>
             <Link to="/leaderboard" className="link">
               <IconButton size="large" aria-label="leaderboard" color="inherit">
                 <LeaderboardIcon />
               </IconButton>
             </Link>
-            <Link to="/account" className="link">
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                color="inherit"
+            {isAuthenticated && (
+              <Link
+                to="/picks"
+                className="link"
+                style={isAuthenticated ? mountedStyle : unmountedStyle}
               >
-                <AccountCircle />
-              </IconButton>
-            </Link>
+                <IconButton size="large" aria-label="picks" color="inherit">
+                  <LocalActivityIcon />
+                </IconButton>
+              </Link>
+            )}
+            {isAuthenticated && (
+              <Link
+                to="/account"
+                className="link"
+                style={isAuthenticated ? mountedStyle : unmountedStyle}
+              >
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </Link>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -140,3 +154,9 @@ export const NavBar = () => {
 const link = css`
   text-decoration: none; !important
 `;
+
+const mountedStyle = { animation: "inAnimation 500ms ease-in" };
+const unmountedStyle = {
+  animation: "outAnimation 500ms ease-out",
+  animationFillMode: "forwards",
+};
