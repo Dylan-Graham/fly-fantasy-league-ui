@@ -48,14 +48,6 @@ export const NavBar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Link to="/picks" className="mobile-link">
-        <MenuItem>
-          <IconButton size="large" aria-label="picks" color="inherit">
-            <LocalActivityIcon />
-          </IconButton>
-          <p>Picks</p>
-        </MenuItem>
-      </Link>
       <Link to="leaderboard" className="mobile-link">
         <MenuItem>
           <IconButton size="large" aria-label="leaderboard" color="inherit">
@@ -64,24 +56,36 @@ export const NavBar = () => {
           <p>Leaderboard</p>
         </MenuItem>
       </Link>
-      <Link to="/account" className="mobile-link">
-        <MenuItem>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <p>Account</p>
-        </MenuItem>
-      </Link>
+      {isAuthenticated && (
+        <Link to="/picks" className="mobile-link">
+          <MenuItem>
+            <IconButton size="large" aria-label="picks" color="inherit">
+              <LocalActivityIcon />
+            </IconButton>
+            <p>Picks</p>
+          </MenuItem>
+        </Link>
+      )}
+      {isAuthenticated && (
+        <Link to="/account" className="mobile-link">
+          <MenuItem>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+            <p>Account</p>
+          </MenuItem>
+        </Link>
+      )}
     </Menu>
   );
 
   return (
     <Box className="TopBox">
-      <AppBar position="static" style={{ background: "#2fe0b5" }}>
+      <AppBar position="fixed" style={{ background: "#2fe0b5" }}>
         <Toolbar>
           <Typography
             variant="h5"

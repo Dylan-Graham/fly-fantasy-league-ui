@@ -1,4 +1,5 @@
-import React from "react";
+/** @jsxImportSource @emotion/react */
+import React, { useContext } from "react";
 import "./Picks.css";
 import { AthletePicker } from "./Athlete-Picker";
 import AthletesTierA from "../data/AthletesTierA.json";
@@ -7,6 +8,8 @@ import AthletesTierC from "../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
 import { http_post } from "../lib";
 import { useAuth0 } from "@auth0/auth0-react";
+import { UserContext } from "../context";
+import { css } from "@emotion/react";
 
 export interface athlete {
   id: number;
@@ -22,14 +25,46 @@ export const Picks = () => {
   const [tierB, setTierB] = React.useState<athlete[]>(AthletesTierB);
   const [tierC, setTierC] = React.useState<athlete[]>(AthletesTierC);
   const { user, isAuthenticated } = useAuth0();
+  const userContext = useContext(UserContext);
 
   const pickUrl = "/picks";
+
+  const existingPicks = () => {
+    return (
+      <>
+        <div>
+          <h1>Picks</h1>
+        </div>
+        <div css={existingPicksStyle}>
+          <div style={{ marginTop: "4vh" }}>
+            <h3>Tier A</h3>
+            {userContext.user.picks.tierA.map((athlete: any) => {
+              return <p key={athlete.id}>{athlete.name}</p>;
+            })}
+          </div>
+
+          <div>
+            <h3>Tier B</h3>
+            {userContext.user.picks.tierB.map((athlete: any) => {
+              return <p key={athlete.id}>{athlete.name}</p>;
+            })}
+          </div>
+
+          <div>
+            <h3>Tier C</h3>
+            {userContext.user.picks.tierC.map((athlete: any) => {
+              return <p key={athlete.id}>{athlete.name}</p>;
+            })}
+          </div>
+        </div>
+      </>
+    );
+  };
 
   const collectPicks = () => {
     if (!isAuthenticated) {
       console.error("User not authenticated");
     }
-
     const tierAPicks = [];
     const tierBPicks = [];
     const tierCPicks = [];
@@ -65,9 +100,8 @@ export const Picks = () => {
       tierAPicks.length === 2 &&
       tierBPicks.length === 4 &&
       tierCPicks.length === 2;
-    if (validPick) {
-      // TODO: add username in here...
 
+    if (validPick) {
       const payload = {
         user: user?.email,
         picks: {
@@ -84,12 +118,15 @@ export const Picks = () => {
 
   const sendPicks = async (picks: any) => {
     try {
-      const response: any[] = await http_post(pickUrl, picks);
-      console.log(response);
+      await http_post(pickUrl, picks);
     } catch (err) {
       console.error(err);
     }
   };
+
+  if (userContext.user) {
+    return existingPicks();
+  }
 
   return (
     <div className="picks">
@@ -123,3 +160,15 @@ export const Picks = () => {
     </div>
   );
 };
+
+const existingPicksStyle = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  background: white;
+  color: black;
+  width: 30vw;
+  height: 37vh;
+  border-radius: 4px;
+`;
