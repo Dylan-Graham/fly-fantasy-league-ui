@@ -3,6 +3,7 @@ import "./Login.css";
 import { LoginButton } from "./Login-Button";
 import { Profile } from "./Profile";
 import { css } from "@emotion/react";
+import { greenBlackGradient } from "../style";
 
 const baklSvgPath = "/assets/svg/bakl-logo.svg";
 const pickAthletePath = "/assets/images/pick-athlete.png";
@@ -10,7 +11,7 @@ const pickAthletePath = "/assets/images/pick-athlete.png";
 export const Login = () => {
   return (
     <div className="container">
-      <div className="card green">
+      <div className="card green" css={greenBlackGradient}>
         <img src={baklSvgPath} alt="bakl-logo" />
         <h4>Build Your Team and Join The Ranks!</h4>
         <img src={pickAthletePath} alt="bakl-logo" css={pickAthleteCss} />

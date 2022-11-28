@@ -15,6 +15,9 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { css } from "@emotion/react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { greenBlackGradient } from "../style";
+
+const baklSvgPath = "/assets/svg/bakl-logo.svg";
 
 export const NavBar = () => {
   const { isAuthenticated } = useAuth0();
@@ -85,8 +88,13 @@ export const NavBar = () => {
 
   return (
     <Box className="TopBox">
-      <AppBar position="fixed" style={{ background: "#2fe0b5" }}>
+      <AppBar position="fixed" css={[toolbar, greenBlackGradient]}>
         <Toolbar>
+          <img
+            src={baklSvgPath}
+            alt="bakl-logo"
+            style={{ position: "relative", left: -24 }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -98,7 +106,7 @@ export const NavBar = () => {
             css={link}
           >
             <Link to="/" className="link">
-              Fly Fantasy League
+              FLY FANTASY LEAGUE
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
@@ -164,3 +172,7 @@ const unmountedStyle = {
   animation: "outAnimation 500ms ease-out",
   animationFillMode: "forwards",
 };
+
+const toolbar = css`
+  border-bottom-right-radius: 4vw;
+`;

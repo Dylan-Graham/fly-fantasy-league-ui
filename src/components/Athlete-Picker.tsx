@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
-import { athlete } from "./Picks";
+import { athlete } from "./NewPicks";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

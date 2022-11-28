@@ -3,12 +3,12 @@ import "./App.css";
 import { Login } from "./Login";
 import { Leaderboard } from "./Leaderboard";
 import { NavBar } from "./NavBar";
-import { Picks } from "./Picks";
 import { Account } from "./Account";
 import { UserContext } from "../context";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NoMatchRoute } from "./NoMatchRoute";
+import { Pick } from "./Pick";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -23,7 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
-              {isAuthenticated && <Route path="/picks" element={<Picks />} />}
+              {isAuthenticated && <Route path="/picks" element={<Pick />} />}
               {isAuthenticated && (
                 <Route path="/account" element={<Account />} />
               )}
