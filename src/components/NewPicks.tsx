@@ -150,7 +150,6 @@ export const NewPicks = ({
     }
 
     showExistingPickChanger(true);
-    console.log("yeet", true);
   };
 
   return makeNewPick();
