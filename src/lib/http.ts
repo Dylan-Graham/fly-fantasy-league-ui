@@ -9,9 +9,12 @@ export function absoluteUrl(url: string): string {
 export async function http_get(
   url: string,
   params?: objectType,
-  extra_headers?: objectType
+  accessToken?: any
 ) {
-  let headers = getHeaders(extra_headers);
+  const headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${accessToken}`,
+  };
 
   if (params != null) {
     url = `${url}/${serialize(params)}`;
@@ -39,12 +42,15 @@ export async function http_get(
 export async function http_post(
   url: string,
   data: objectType,
-  params?: objectType,
-  options?: objectType,
+  params: objectType,
+  accessToken?: any,
   method: string = "POST"
 ) {
   try {
-    const headers = getHeaders(options?.headers, options);
+    const headers = {
+      "Content-Type": "application/json;charset=UTF-8",
+      Authorization: `Bearer ${accessToken}`,
+    };
 
     if (params != null) {
       url = `${url}/${serialize(params)}`;

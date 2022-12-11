@@ -22,7 +22,9 @@ function App() {
           <UserContext.Provider value={{ user, setUser }}>
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/leaderboard" element={<Leaderboard />} />
+              {isAuthenticated && (
+                <Route path="/leaderboard" element={<Leaderboard />} />
+              )}
               {isAuthenticated && <Route path="/picks" element={<Pick />} />}
               {isAuthenticated && (
                 <Route path="/account" element={<Account />} />

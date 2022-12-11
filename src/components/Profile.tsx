@@ -5,7 +5,11 @@ import { UserContext } from "../context";
 import { http_post } from "../lib";
 import { imageStyle } from "../style";
 
-const sendUser = async (user: User, userContext: any) => {
+const sendUser = async (
+  user: User,
+  userContext: any,
+  getAccessTokenSilently: any
+) => {
   if (userContext.user != null) {
     return;
   }
@@ -19,7 +23,8 @@ const sendUser = async (user: User, userContext: any) => {
       name: user?.nickname,
     };
     const userUrl = "/user";
-    const response = await http_post(userUrl, userData);
+    const token = await getAccessTokenSilently();
+    const response = await http_post(userUrl, userData, {}, token);
     userContext.setUser(response);
   } catch (err) {
     console.error(err);
@@ -27,7 +32,7 @@ const sendUser = async (user: User, userContext: any) => {
 };
 
 export const Profile = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const userContext = useContext(UserContext);
 
   if (!user) {
@@ -35,7 +40,7 @@ export const Profile = () => {
   }
 
   if (isAuthenticated) {
-    sendUser(user, userContext);
+    sendUser(user, userContext, getAccessTokenSilently);
     return (
       <div>
         <h1>Welcome!</h1>

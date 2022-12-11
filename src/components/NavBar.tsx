@@ -110,52 +110,56 @@ export const NavBar = () => {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link to="/leaderboard" className="link">
-              <IconButton size="large" aria-label="leaderboard" color="inherit">
-                <LeaderboardIcon />
-              </IconButton>
-            </Link>
-            {isAuthenticated && (
-              <Link
-                to="/picks"
-                className="link"
-                style={isAuthenticated ? mountedStyle : unmountedStyle}
-              >
-                <IconButton size="large" aria-label="picks" color="inherit">
-                  <LocalActivityIcon />
-                </IconButton>
-              </Link>
-            )}
-            {isAuthenticated && (
-              <Link
-                to="/account"
-                className="link"
-                style={isAuthenticated ? mountedStyle : unmountedStyle}
-              >
+          {isAuthenticated && (
+            <div>
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <Link to="/leaderboard" className="link">
+                  <IconButton
+                    size="large"
+                    aria-label="leaderboard"
+                    color="inherit"
+                  >
+                    <LeaderboardIcon />
+                  </IconButton>
+                </Link>
+                <Link
+                  to="/picks"
+                  className="link"
+                  style={isAuthenticated ? mountedStyle : unmountedStyle}
+                >
+                  <IconButton size="large" aria-label="picks" color="inherit">
+                    <LocalActivityIcon />
+                  </IconButton>
+                </Link>
+                <Link
+                  to="/account"
+                  className="link"
+                  style={isAuthenticated ? mountedStyle : unmountedStyle}
+                >
+                  <IconButton
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    color="inherit"
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                </Link>
+              </Box>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
-                  edge="end"
-                  aria-label="account of current user"
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
                   color="inherit"
                 >
-                  <AccountCircle />
+                  <MoreIcon />
                 </IconButton>
-              </Link>
-            )}
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+              </Box>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

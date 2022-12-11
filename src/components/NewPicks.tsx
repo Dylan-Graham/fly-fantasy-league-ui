@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useContext } from "react";
 import "./NewPicks.css";
 import { AthletePicker } from "./Athlete-Picker";
 import AthletesTierA from "../data/AthletesTierA.json";
@@ -8,6 +8,7 @@ import AthletesTierC from "../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
 import { http_post } from "../lib";
 import { useAuth0 } from "@auth0/auth0-react";
+import { UserContext } from "../context";
 
 export interface athlete {
   id: number;
@@ -26,9 +27,26 @@ export const NewPicks = ({
   const [tierA, setTierA] = React.useState<athlete[]>(AthletesTierA);
   const [tierB, setTierB] = React.useState<athlete[]>(AthletesTierB);
   const [tierC, setTierC] = React.useState<athlete[]>(AthletesTierC);
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const userContext = useContext(UserContext);
 
   const pickUrl = "/picks";
+
+  const resetPicks = () => {
+    for (const athlete of tierA) {
+      athlete.available = true;
+    }
+
+    for (const athlete of tierB) {
+      athlete.available = true;
+    }
+
+    for (const athlete of tierC) {
+      athlete.available = true;
+    }
+  };
+
+  resetPicks();
 
   const makeNewPick = () => {
     return (
@@ -113,15 +131,20 @@ export const NewPicks = ({
           tierC: tierCPicks,
         },
       };
-      sendPicks(payload);
+      sendPicks(payload, getAccessTokenSilently);
     }
 
     // TODO: change view
   };
 
-  const sendPicks = async (picks: any) => {
+  const sendPicks = async (payload: any, getAccessTokenSilently: any) => {
     try {
-      await http_post(pickUrl, picks);
+      const token = await getAccessTokenSilently();
+      await http_post(pickUrl, payload, {}, token);
+
+      const updatedUserPicks = userContext.user;
+      userContext.user.picks = payload.picks;
+      userContext.setUser(updatedUserPicks);
     } catch (err) {
       console.error(err);
     }

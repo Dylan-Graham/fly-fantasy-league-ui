@@ -13,6 +13,7 @@ root.render(
   <React.StrictMode>
     <Auth0Provider
       domain="dev-zhzk6jkh.us.auth0.com"
+      audience="https://fly-fantasy-league-server.herokuapp.com/"
       clientId="dXDGAMBf3CVlTSxXuyG47S7AupvFG7tC"
       redirectUri={window.location.origin}
     >

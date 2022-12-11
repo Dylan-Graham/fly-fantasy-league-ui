@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import "./Leaderboard.css";
 import { http_get } from "../lib";
 import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface user {
   email: string;
@@ -20,19 +21,21 @@ interface user {
 export const Leaderboard = () => {
   const [users, setUsers] = useState<user[]>([]);
   const isLoaded = users.length > 0;
+  const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     const getRanking = async () => {
       try {
         const rankingUrl = "/user";
-        const response: any[] = await http_get(rankingUrl);
+        const token = await getAccessTokenSilently();
+        const response: any[] = await http_get(rankingUrl, undefined, token);
         setUsers(response);
       } catch (err) {
         console.error(err);
       }
     };
     getRanking();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   if (users.length === 0) {
     return (
