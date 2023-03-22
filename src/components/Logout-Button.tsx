@@ -3,9 +3,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { css } from "@emotion/react";
 
 export const LogoutButton = () => {
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated } = useAuth0();
   return (
     <button
+      style={isAuthenticated ? mountedStyle : unmountedStyle}
       css={buttonStyle}
       onClick={() => logout({ returnTo: window.location.origin })}
     >
@@ -24,3 +25,9 @@ const buttonStyle = css`
   margin-bottom: 20px;
   border-radius: 15px;
 `;
+
+const mountedStyle = { animation: "inAnimation 500ms ease-in" };
+const unmountedStyle = {
+  animation: "outAnimation 500ms ease-out",
+  animationFillMode: "forwards",
+};

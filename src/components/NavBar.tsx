@@ -18,6 +18,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { greenBlackGradient } from "../style";
 
 const baklSvgPath = "/assets/svg/bakl-logo.svg";
+const gkaSvgPath = "/assets/svg/gka-logo.jpeg";
 
 export const NavBar = () => {
   const { isAuthenticated } = useAuth0();
@@ -91,7 +92,7 @@ export const NavBar = () => {
       <AppBar position="fixed" css={[toolbar, greenBlackGradient]}>
         <Toolbar>
           <img
-            src={baklSvgPath}
+            src={gkaSvgPath}
             alt="bakl-logo"
             style={{ position: "relative", left: -24 }}
           />
@@ -106,7 +107,7 @@ export const NavBar = () => {
             css={link}
           >
             <Link to="/" className="link">
-              FLY FANTASY LEAGUE
+              Fly Fantasy League
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />

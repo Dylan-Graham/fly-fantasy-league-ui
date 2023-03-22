@@ -13,6 +13,7 @@ import { Pick } from "./Pick";
 function App() {
   const { isAuthenticated } = useAuth0();
   const [user, setUser] = useState<any>(null);
+  const [loginLoading, setLoginLoading] = useState(false);
 
   return (
     <Router>
@@ -21,7 +22,15 @@ function App() {
         <div className="content">
           <UserContext.Provider value={{ user, setUser }}>
             <Routes>
-              <Route path="/" element={<Login />} />
+              <Route
+                path="/"
+                element={
+                  <Login
+                    loginLoading={loginLoading}
+                    loginLoadingChanger={setLoginLoading}
+                  />
+                }
+              />
               {isAuthenticated && (
                 <Route path="/leaderboard" element={<Leaderboard />} />
               )}

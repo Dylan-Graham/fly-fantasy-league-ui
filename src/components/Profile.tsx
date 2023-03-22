@@ -42,7 +42,7 @@ export const Profile = () => {
   if (isAuthenticated) {
     sendUser(user, userContext, getAccessTokenSilently);
     return (
-      <div>
+      <div style={isAuthenticated ? mountedStyle : unmountedStyle}>
         <h1>Welcome!</h1>
         <img src={user?.picture} alt={user?.name} css={imageStyle} />
         <h2>{user?.name}</h2>
@@ -52,4 +52,10 @@ export const Profile = () => {
   }
 
   return <div></div>;
+};
+
+const mountedStyle = { animation: "inAnimation 500ms ease-in" };
+const unmountedStyle = {
+  animation: "outAnimation 500ms ease-out",
+  animationFillMode: "forwards",
 };
