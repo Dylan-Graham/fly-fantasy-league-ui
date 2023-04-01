@@ -15,7 +15,7 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { css } from "@emotion/react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { greenBlackGradient } from "../style";
+import { purpleNavBarColor } from "../style";
 
 const baklSvgPath = "/assets/svg/bakl-logo.svg";
 const gkaSvgPath = "/assets/svg/gka-logo.jpeg";
@@ -89,7 +89,7 @@ export const NavBar = () => {
 
   return (
     <Box className="TopBox">
-      <AppBar position="fixed" css={[toolbar, greenBlackGradient]}>
+      <AppBar position="fixed" css={[toolbar, purpleNavBarColor]}>
         <Toolbar>
           <img
             src={gkaSvgPath}
@@ -107,7 +107,7 @@ export const NavBar = () => {
             css={link}
           >
             <Link to="/" className="link">
-              Fly Fantasy League
+              <div style={{ fontWeight: 100 }}>Fly Fantasy League</div>
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />

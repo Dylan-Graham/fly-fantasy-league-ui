@@ -3,7 +3,8 @@ import { useAuth0, User } from "@auth0/auth0-react";
 import { useContext } from "react";
 import { UserContext } from "../context";
 import { http_post } from "../lib";
-import { imageStyle } from "../style";
+import { imageStyle, waveAnimation } from "../style";
+import styled from "@emotion/styled";
 
 const sendUser = async (
   user: User,
@@ -35,8 +36,14 @@ export const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const userContext = useContext(UserContext);
 
+  const signUpSvgPath = "/assets/images/sign-up.gif";
+
   if (!user) {
-    return <div></div>;
+    return (
+      <div>
+        <AnimatedImage src={signUpSvgPath} alt="sign-up-logo" />
+      </div>
+    );
   }
 
   if (isAuthenticated) {
@@ -51,7 +58,21 @@ export const Profile = () => {
     );
   }
 
-  return <div></div>;
+  return (
+    <div>
+      <img
+        src={signUpSvgPath}
+        alt="sign-up-logo"
+        style={{
+          height: "100px",
+          width: "300px",
+          marginTop: "20px",
+          borderRadius: "5px",
+          objectFit: "cover",
+        }}
+      />
+    </div>
+  );
 };
 
 const mountedStyle = { animation: "inAnimation 500ms ease-in" };
@@ -59,3 +80,12 @@ const unmountedStyle = {
   animation: "outAnimation 500ms ease-out",
   animationFillMode: "forwards",
 };
+
+const AnimatedImage = styled.img`
+  // animation: ${waveAnimation} 30s infinite linear;
+  border-radius: 5px;
+  margin-top: 10vh;
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+`;

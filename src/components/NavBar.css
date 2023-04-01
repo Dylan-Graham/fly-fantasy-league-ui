@@ -2,7 +2,7 @@
     width: 100vw;
     position: fixed;
     top: 0;
-    height: 9vh;
+    z-index: 1
 }
 
 .link {

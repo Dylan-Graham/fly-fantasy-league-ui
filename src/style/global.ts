@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 export const imageStyle = css`
   border-radius: 100px;
@@ -20,7 +20,6 @@ export const flexSpaceAroundRow = css`
   justify-content: space-around;
 `;
 
-
 export const leftAlignText = css`
   text-align: left;
 `;
@@ -29,11 +28,69 @@ export const bigTopMargin = css`
   margin-top: 50px;
 `;
 
-export const greenBlackGradient = css`
-  // background: rgb(47, 224, 181);
-  background: linear-gradient(
-    90deg,
-    rgba(47, 224, 181, 1) 0%,
-    rgba(0, 0, 0, 1) 80%
-  );
+export const purpleNavBarColor = css`
+  background: #672046;
+`;
+
+/**
+ * Animation
+ */
+
+export const waveAnimation = keyframes`
+0%,
+100% {
+  border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+}
+
+10% {
+  border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+}
+
+20% {
+  border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+}
+
+30% {
+  border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+  
+}
+
+40% {
+  border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+}
+
+50% {
+  border-radius: 100%;
+  
+}
+
+60% {
+  border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+}
+
+70% {
+  border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+}
+
+80% {
+  border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+}
+
+90% {
+  border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+}
+`;
+
+export const softWaveAnimation = keyframes`
+0% {
+  border-radius:  12% 8% 6% 14% / 12% 6% 14% 8%;
+} 
+
+50% {
+  border-radius:  6% 12% 14% 8% / 10% 12% 6% 12%;
+}
+
+100% {
+border-radius:  12% 8% 6% 14% / 12% 6% 14% 8%;
+} 
 `;

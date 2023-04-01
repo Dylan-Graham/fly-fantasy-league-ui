@@ -2,9 +2,11 @@
     margin-top: 200px;
     width: 50%;
     border-radius: 50px;
-background: linear-gradient(145deg, #2b2f38, #24282f);
+    background: white;
+    color: black;
 box-shadow:  20px 20px 60px #22252c,
              -20px -20px 60px #2e333c;
+    margin-bottom: 5vh;
 }
 
 .hr {
