@@ -3,12 +3,10 @@ import "./Login.css";
 import { LoginButton } from "./Login-Button";
 import { Profile } from "./Profile";
 import { css } from "@emotion/react";
-import { purpleNavBarColor, softWaveAnimation, waveAnimation } from "../style";
+import { purpleNavBarColor } from "../style";
 import { Dispatch, SetStateAction } from "react";
 import styled from "@emotion/styled";
 
-const baklSvgPath = "/assets/svg/bakl-logo.svg";
-const signUpSvgPath = "/assets/images/sign-up.gif";
 const pickAthletePath = "/assets/images/pick-athlete.png";
 
 export const Login = ({
@@ -25,11 +23,6 @@ export const Login = ({
     >
       <div className="card green" css={purpleNavBarColor}>
         <h4>Build Your Team and Join The Ranks!</h4>
-        {/* <img
-          src={pickAthletePath}
-          alt="-pick-athlete-logo"
-          css={pickAthleteCss}
-        /> */}
         <AnimatedImage src={pickAthletePath} alt="pick-athlete-logo" />
       </div>
       <div className="card white">
@@ -48,7 +41,6 @@ const buttons = css`
 `;
 
 const AnimatedImage = styled.img`
-  // animation: ${softWaveAnimation} 4s ease-in-out infinite;
   margin-top: 10px;
   width: 300px;
   border-radius: 5px;

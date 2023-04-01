@@ -17,7 +17,6 @@ import { css } from "@emotion/react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { purpleNavBarColor } from "../style";
 
-const baklSvgPath = "/assets/svg/bakl-logo.svg";
 const gkaSvgPath = "/assets/svg/gka-logo.jpeg";
 
 export const NavBar = () => {
