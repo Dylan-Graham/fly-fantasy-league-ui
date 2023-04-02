@@ -36,7 +36,7 @@ const JoinALeague = () => {
     <WhiteButton onClick={handleClick}>
       <ColumnOne>
         <h1>Create a League</h1>
-        <p>Search for leagues</p>
+        <p>Create a new league for you and your friends</p>
       </ColumnOne>
       <div>
         <LocalActivityRounded />
