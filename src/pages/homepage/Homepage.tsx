@@ -29,13 +29,13 @@ const MyTeam = () => {
 const JoinALeague = () => {
   const navigate = useNavigate();
   const handleClick = (_event: any) => {
-    navigate("/leaderboard");
+    navigate("/leagues");
   };
 
   return (
     <WhiteButton onClick={handleClick}>
       <ColumnOne>
-        <h1>Join a League</h1>
+        <h1>Create a League</h1>
         <p>Search for leagues</p>
       </ColumnOne>
       <div>
@@ -104,6 +104,7 @@ const WhiteButton = styled.button({
   alignItems: "center",
   padding: "40px",
   border: "none",
+  cursor: "pointer",
 });
 
 const ColumnOne = styled.div({

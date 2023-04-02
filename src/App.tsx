@@ -9,6 +9,7 @@ import { NoMatchRoute } from "./pages/NoMatchRoute";
 import { Pick } from "./pages/pick/Pick";
 import { Leaderboard } from "./pages/leaderboard/Leaderboard";
 import { Account } from "./pages/account/Account";
+import { Leagues } from "./pages/leagues/Leagues";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -35,6 +36,9 @@ function App() {
               />
               {isAuthenticated && (
                 <Route path="/leaderboard" element={<Leaderboard />} />
+              )}
+              {isAuthenticated && (
+                <Route path="/leagues" element={<Leagues />} />
               )}
               {isAuthenticated && <Route path="/picks" element={<Pick />} />}
               {isAuthenticated && (
