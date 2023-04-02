@@ -2,10 +2,10 @@
 import { EditOutlined } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { useContext, useState } from "react";
-import { UserContext } from "../context";
-import { flexSpaceAroundRow } from "../style";
-import { ExistingPicks } from "./ExistingPicks";
-import { NewPicks } from "./NewPicks";
+import { UserContext } from "../../context";
+import { flexSpaceAroundRow } from "../../style";
+import { NewPicks } from "./components/NewPicks";
+import { ExistingPicks } from "./components/ExistingPicks";
 
 export const Pick = () => {
   const userContext = useContext(UserContext);

@@ -2,13 +2,13 @@
 import React, { Dispatch, SetStateAction, useContext } from "react";
 import "./NewPicks.css";
 import { AthletePicker } from "./Athlete-Picker";
-import AthletesTierA from "../data/AthletesTierA.json";
-import AthletesTierB from "../data/AthletesTierB.json";
-import AthletesTierC from "../data/AthletesTierC.json";
+import AthletesTierA from "../../../data/AthletesTierA.json";
+import AthletesTierB from "../../../data/AthletesTierB.json";
+import AthletesTierC from "../../../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
-import { http_post } from "../lib";
 import { useAuth0 } from "@auth0/auth0-react";
-import { UserContext } from "../context";
+import { UserContext } from "../../../context";
+import { http_post } from "../../../lib";
 
 export interface athlete {
   id: number;

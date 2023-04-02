@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { UserContext } from "../context";
+import { UserContext } from "../../../context";
 import { useContext } from "react";
 
 export const ExistingPicks = () => {
@@ -43,6 +43,5 @@ const existingPicksStyle = css`
   color: black;
   width: 30vw;
   height: 37vh;
-  border-radius: 4px;
+  border-radius: 50px;
 `;
-

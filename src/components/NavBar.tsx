@@ -88,7 +88,7 @@ export const NavBar = () => {
 
   return (
     <Box className="TopBox">
-      <AppBar position="fixed" css={[toolbar, purpleNavBarColor]}>
+      <AppBar position="fixed" css={[purpleNavBarColor]}>
         <Toolbar>
           <img
             src={gkaSvgPath}
@@ -176,7 +176,3 @@ const unmountedStyle = {
   animation: "outAnimation 500ms ease-out",
   animationFillMode: "forwards",
 };
-
-const toolbar = css`
-  border-bottom-right-radius: 4vw;
-`;

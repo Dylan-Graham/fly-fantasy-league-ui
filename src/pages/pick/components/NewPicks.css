@@ -1,12 +1,12 @@
 .picks {
-    margin-top: 200px;
+    margin-top: 100px;
     width: 50%;
     border-radius: 50px;
     background: white;
     color: black;
 box-shadow:  20px 20px 60px #22252c,
              -20px -20px 60px #2e333c;
-    margin-bottom: 5vh;
+    margin-bottom: 35px;
 }
 
 .hr {

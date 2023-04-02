@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { useAuth0, User } from "@auth0/auth0-react";
 import { useContext } from "react";
-import { UserContext } from "../context";
-import { http_post } from "../lib";
-import { imageStyle, waveAnimation } from "../style";
+import { UserContext } from "../../../context";
+import { http_post } from "../../../lib";
+import { imageStyle, waveAnimation } from "../../../style";
 import styled from "@emotion/styled";
 
 const sendUser = async (

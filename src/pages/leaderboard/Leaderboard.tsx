@@ -37,7 +37,7 @@ export const Leaderboard = () => {
   const [rows, setRows] = useState<User[]>([]);
   const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
@@ -65,6 +65,8 @@ export const Leaderboard = () => {
               height: "100%",
               borderTopLeftRadius: "0px",
               borderTopRightRadius: "0px",
+              borderBottomLeftRadius: "50px",
+              borderBottomRightRadius: "50px",
             }}
           >
             <DataGrid
@@ -73,6 +75,8 @@ export const Leaderboard = () => {
               columns={columns}
               hideFooterPagination={true}
               loading={rows.length === 0}
+              rowHeight={35}
+              sx={{ borderBottomLeftRadius: 50, borderBottomRightRadius: 50 }}
             />
           </Paper>
         </Box>
@@ -89,12 +93,12 @@ export const Leaderboard = () => {
         sx={{
           width: "650px",
           backgroundColor: "white",
-          borderTopLeftRadius: "5px",
-          borderTopRightRadius: "5px",
+          borderTopLeftRadius: "50px",
+          borderTopRightRadius: "50px",
         }}
       >
         <Tab icon={<KitesurfingIcon />} label="Big Air" />
-        <Tab icon={<SurfingIcon />} label="Wave" />
+        <Tab icon={<SurfingIcon />} label="Kitesurf" />
         <Tab icon={<SnowboardingIcon />} label="Freestyle" />
       </Tabs>
       <Table />

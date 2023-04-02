@@ -1,21 +1,29 @@
 /** @jsxImportSource @emotion/react */
-import "./Login.css";
-import { LoginButton } from "./Login-Button";
-import { Profile } from "./Profile";
+import "./LoginPage.css";
+import { LoginButton } from "./components/Login-Button";
 import { css } from "@emotion/react";
-import { purpleNavBarColor } from "../style";
+import { purpleNavBarColor } from "../../style";
 import { Dispatch, SetStateAction } from "react";
 import styled from "@emotion/styled";
+import { Profile } from "./components/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Homepage } from "./Homepage";
 
 const pickAthletePath = "/assets/images/pick-athlete.png";
 
-export const Login = ({
+export const LoginPage = ({
   loginLoading,
   loginLoadingChanger,
 }: {
   loginLoading: boolean;
   loginLoadingChanger: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const { isAuthenticated } = useAuth0();
+
+  if (isAuthenticated) {
+    return <Homepage />;
+  }
+
   return (
     <div
       className={`container animated-div ${loginLoading ? "loading" : ""}`}
