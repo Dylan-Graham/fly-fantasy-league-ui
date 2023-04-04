@@ -6,6 +6,8 @@ import { UserContext } from "../../context";
 import { flexSpaceAroundRow } from "../../style";
 import { NewPicks } from "./components/NewPicks";
 import { ExistingPicks } from "./components/ExistingPicks";
+import styled from "@emotion/styled";
+import { YoutubeEmbed } from "./components/YoutubeEmbed";
 
 export const Pick = () => {
   const userContext = useContext(UserContext);
@@ -35,8 +37,23 @@ export const Pick = () => {
       {showExistingPick ? (
         <ExistingPicks />
       ) : (
-        <NewPicks showExistingPickChanger={setShowExistingPick} />
+        <Content>
+          <NewPicks showExistingPickChanger={setShowExistingPick} />
+          <YoutubeEmbed />
+        </Content>
       )}
     </>
   );
 };
+
+const Content = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  width: "95vw",
+  marginTop: "100px",
+  "@media (max-width: 768px)": {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
