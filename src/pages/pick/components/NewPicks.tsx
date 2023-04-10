@@ -7,8 +7,8 @@ import AthletesTierB from "../../../data/AthletesTierB.json";
 import AthletesTierC from "../../../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
 import { useAuth0 } from "@auth0/auth0-react";
-import { UserContext } from "../../../context";
 import { http_post } from "../../../lib";
+import { UserContext } from "../../../context/UserContext";
 
 export interface athlete {
   id: number;
@@ -53,9 +53,6 @@ export const NewPicks = ({
       <div className="picks">
         <h2>My Team</h2>
         <hr className="hr"></hr>
-        <div>
-          <p>Event: Cape Town Pro</p>
-        </div>
 
         <div>
           <h4>Tier A (top 6)</h4>
@@ -67,8 +64,6 @@ export const NewPicks = ({
           <h4>Tier B (top 12)</h4>
           <AthletePicker athletes={tierB} tierChanger={setTierB} />
           <AthletePicker athletes={tierB} tierChanger={setTierB} />
-          <AthletePicker athletes={tierB} tierChanger={setTierB} />
-          <AthletePicker athletes={tierB} tierChanger={setTierB} />
         </div>
 
         <div>
@@ -77,6 +72,7 @@ export const NewPicks = ({
           <AthletePicker athletes={tierC} tierChanger={setTierC} />
         </div>
 
+        <hr className="hr"></hr>
         <Button onClick={collectPicks}>Save Pick</Button>
       </div>
     );
@@ -119,7 +115,7 @@ export const NewPicks = ({
 
     const validPick =
       tierAPicks.length === 2 &&
-      tierBPicks.length === 4 &&
+      tierBPicks.length === 2 &&
       tierCPicks.length === 2;
 
     if (validPick) {
@@ -133,8 +129,6 @@ export const NewPicks = ({
       };
       sendPicks(payload, getAccessTokenSilently);
     }
-
-    // TODO: change view
   };
 
   const sendPicks = async (payload: any, getAccessTokenSilently: any) => {
