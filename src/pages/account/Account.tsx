@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { flexRow, imageStyle, leftAlignText } from "../../style";
 import "./Account.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { LogoutButton } from "../homepage/components/Logout-Button";
 
 export const Account = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -17,6 +18,7 @@ export const Account = () => {
         </div>
         <p css={leftAlignText}>Name: {user?.nickname}</p>
         <p css={leftAlignText}>Email: {user?.email}</p>
+        <LogoutButton></LogoutButton>
       </div>
     );
   }

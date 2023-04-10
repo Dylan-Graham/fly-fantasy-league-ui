@@ -1,12 +1,15 @@
 .picks {
-    margin-top: 100px;
-    width: 50%;
+    height: 850px;
+    width: 40%;
     border-radius: 50px;
     background: white;
     color: black;
 box-shadow:  20px 20px 60px #22252c,
              -20px -20px 60px #2e333c;
     margin-bottom: 35px;
+    @media (max-width: 768px) {
+        width: "386px",
+    }
 }
 
 .hr {
