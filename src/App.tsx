@@ -5,7 +5,6 @@ import { NavBar } from "./components/NavBar";
 import { UserContext } from "./context";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { NoMatchRoute } from "./pages/NoMatchRoute";
 import { Pick } from "./pages/pick/Pick";
 import { Leaderboard } from "./pages/leaderboard/Leaderboard";
 import { Account } from "./pages/account/Account";
