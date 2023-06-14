@@ -2,7 +2,9 @@
 import React, { Dispatch, SetStateAction, useContext } from "react";
 import "./NewPicks.css";
 import { AthletePicker } from "./Athlete-Picker";
-import GKATarifa2023 from "../../../data/GKATarifa2023.json";
+import AthletesTierA from "../../../data/AthletesTierA.json";
+import AthletesTierB from "../../../data/AthletesTierB.json";
+import AthletesTierC from "../../../data/AthletesTierC.json";
 import Button from "@mui/material/Button";
 import { useAuth0 } from "@auth0/auth0-react";
 import { http_post } from "../../../lib";
@@ -22,15 +24,9 @@ export const NewPicks = ({
 }: {
   showExistingPickChanger: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [tierA, setTierA] = React.useState<athlete[]>(
-    GKATarifa2023.slice(0, 8)
-  );
-  const [tierB, setTierB] = React.useState<athlete[]>(
-    GKATarifa2023.slice(8, 17)
-  );
-  const [tierC, setTierC] = React.useState<athlete[]>(
-    GKATarifa2023.slice(17, 24)
-  );
+  const [tierA, setTierA] = React.useState<athlete[]>(AthletesTierA);
+  const [tierB, setTierB] = React.useState<athlete[]>(AthletesTierB);
+  const [tierC, setTierC] = React.useState<athlete[]>(AthletesTierC);
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const userContext = useContext(UserContext);
 
