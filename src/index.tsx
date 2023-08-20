@@ -12,9 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-zhzk6jkh.us.auth0.com"
-      audience="https://fly-fantasy-league-server.herokuapp.com/"
-      clientId="dXDGAMBf3CVlTSxXuyG47S7AupvFG7tC"
+      domain={process.env.REACT_APP_AUTH0_DOMAIN || ""}
+      audience={process.env.REACT_APP_AUTH0_AUDIENCE}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID || ""}
       redirectUri={window.location.origin}
     >
       <App />
