@@ -5,14 +5,14 @@ import { NavBar } from "./components/NavBar";
 import { UserContext } from "./context";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { NoMatchRoute } from "./pages/NoMatchRoute";
 import { Pick } from "./pages/pick/Pick";
 import { Leaderboard } from "./pages/leaderboard/Leaderboard";
 import { Account } from "./pages/account/Account";
 import { Leagues } from "./pages/leagues/Leagues";
+import { LoadingRoute } from "./pages/LoadingRoute";
 
 function App() {
-  const { isAuthenticated } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
   const [user, setUser] = useState<any>(null);
   const [loginLoading, setLoginLoading] = useState(false);
 
@@ -44,7 +44,9 @@ function App() {
               {isAuthenticated && (
                 <Route path="/account" element={<Account />} />
               )}
-              <Route path="*" element={<NoMatchRoute />} />
+              {!isLoading && isAuthenticated && (
+                <Route path="*" element={<LoadingRoute />} />
+              )}
             </Routes>
           </UserContext.Provider>
         </div>

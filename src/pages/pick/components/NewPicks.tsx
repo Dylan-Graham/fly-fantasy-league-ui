@@ -13,8 +13,8 @@ import { UserContext } from "../../../context/UserContext";
 export interface athlete {
   id: number;
   name: string;
-  position: number;
-  score: number;
+  position?: number;
+  score?: number;
   url: string;
   available: boolean;
 }

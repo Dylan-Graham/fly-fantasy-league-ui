@@ -6,7 +6,7 @@ import {
   LocalActivityRounded,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { WelcomeGif } from "./components/WelcomeGif";
+import { gkaColor } from "../../style/colors";
 
 const MyTeam = () => {
   const navigate = useNavigate();
@@ -106,6 +106,11 @@ const WhiteButton = styled.button({
   padding: "40px",
   border: "none",
   cursor: "pointer",
+  ":hover": {
+    backgroundColor: gkaColor,
+    color: "#FFFFFF",
+    border: "1px solid #FFFFFF",
+  },
 });
 
 const ColumnOne = styled.div({
