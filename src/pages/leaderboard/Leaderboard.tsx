@@ -7,7 +7,6 @@ import { User } from "../../types/user";
 import { Paper, Tab, Tabs } from "@mui/material";
 import KitesurfingIcon from "@mui/icons-material/Kitesurfing";
 import SurfingIcon from "@mui/icons-material/Surfing";
-import SnowboardingIcon from "@mui/icons-material/Snowboarding";
 
 const columns: GridColDef[] = [
   {
@@ -98,8 +97,12 @@ export const Leaderboard = () => {
         }}
       >
         <Tab icon={<KitesurfingIcon />} label="Big Air" />
-        <Tab icon={<SurfingIcon />} label="Kitesurf" />
-        <Tab icon={<SnowboardingIcon />} label="Freestyle" />
+        <Tab icon={<SurfingIcon />} disabled={true} label="(coming soon)" />
+        {/* <Tab
+          icon={<SnowboardingIcon />}
+          disabled={true}
+          label="Freestyle (coming soon)"
+        /> */}
       </Tabs>
       <Table />
     </>

@@ -50,7 +50,7 @@ export const ExistingPicks = () => {
 };
 
 const existingPicksStyle = css`
-  width: 40%;
+  min-width: 40%;
   height: 850px;
   border-radius: 50px;
   background: white;
@@ -84,4 +84,3 @@ const athleteStyle = css`
   margin-left: 80px;
   height: 50px;
 `;
-

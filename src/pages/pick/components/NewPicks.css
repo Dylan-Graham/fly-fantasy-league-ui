@@ -1,19 +1,18 @@
 .picks {
-    height: 850px;
-    width: 40%;
-    border-radius: 50px;
-    background: white;
-    color: black;
-box-shadow:  20px 20px 60px #22252c,
-             -20px -20px 60px #2e333c;
-    margin-bottom: 35px;
-    @media (max-width: 768px) {
-        width: "386px",
-    }
+  height: 850px;
+  min-width: 40%;
+  border-radius: 50px;
+  background: white;
+  color: black;
+  box-shadow: 20px 20px 60px #22252c, -20px -20px 60px #2e333c;
+  margin-bottom: 35px;
+  @media (max-width: 768px) {
+    width: "386px";
+  }
 }
 
 .hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, #d4d4d4, #d4d4d4, #d4d4d4);
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #d4d4d4, #d4d4d4, #d4d4d4);
 }

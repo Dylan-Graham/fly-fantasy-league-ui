@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { purpleNavBarColor } from "../../style";
 import { Dispatch, SetStateAction, useContext } from "react";
 import styled from "@emotion/styled";
-import { WelcomeGif as WelcomeGif } from "./components/WelcomeGif";
+import { WelcomeGif } from "./components/WelcomeGif";
 import { User, useAuth0 } from "@auth0/auth0-react";
 import { Homepage } from "./Homepage";
 import { http_post } from "../../lib";
