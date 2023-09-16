@@ -14,7 +14,7 @@ const columns: GridColDef[] = [
     headerName: "Rank",
     minWidth: 200,
     valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.points || "-"}`,
+      `${params.row.rank || "-"}`,
   },
   {
     field: "name",
