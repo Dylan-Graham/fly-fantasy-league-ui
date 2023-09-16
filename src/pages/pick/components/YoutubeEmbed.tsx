@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
+import { mobileWidth } from "../../../style/global";
 
 export const YoutubeEmbed = () => {
   return (
     <Content>
       <YoutubePlayer
-        width="386"
-        height="216"
+        width="100%"
+        height="25%"
         src="https://www.youtube.com/embed/Zr6DdA3FlVQ?list=PLWOiDdttDz37LRME7CzILL9pqhuMdM-iU"
         title="Teaser | Lords Of Tram GKA Big-Air Kite World Cup France 2023"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,11 +30,14 @@ export const YoutubeEmbed = () => {
 };
 
 const Content = styled.div({
-  width: "386px",
+  width: "25vw",
+  height: "122vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  height: "850px",
+  '@media (max-width: 768px)': {
+    width: mobileWidth
+  }
 });
 
 const EventTile = styled.div({
@@ -57,7 +61,7 @@ const YoutubePlayer = styled.iframe({
 
 const Line = styled.hr({
   border: 0,
-  width: "330px",
+  width: "100%",
   height: "1px",
   backgroundImage: "linear-gradient(to right, #d4d4d4, #d4d4d4, #d4d4d4)",
 });

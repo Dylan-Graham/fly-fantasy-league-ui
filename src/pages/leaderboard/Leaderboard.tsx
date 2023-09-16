@@ -7,24 +7,29 @@ import { User } from "../../types/user";
 import { Paper, Tab, Tabs } from "@mui/material";
 import KitesurfingIcon from "@mui/icons-material/Kitesurfing";
 import SurfingIcon from "@mui/icons-material/Surfing";
+import styled from "@emotion/styled";
+import { mobileWidth } from "../../style/global";
 
 const columns: GridColDef[] = [
   {
     field: "rank",
     headerName: "Rank",
-    minWidth: 200,
+    minWidth: 50,
+    flex: 0.3,
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.rank || "-"}`,
   },
   {
     field: "name",
     headerName: "User",
-    minWidth: 200,
+    minWidth: 50,
+    flex: 0.3,
   },
   {
     field: "points",
     headerName: "Points",
-    minWidth: 200,
+    minWidth: 50,
+    flex: 0.3,
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.points || "-"}`,
   },
@@ -57,7 +62,7 @@ export const Leaderboard = () => {
   const Table = () => {
     return (
       <>
-        <Box sx={{ width: "650px", height: "400px" }}>
+        <MyBox>
           <Paper
             sx={{
               width: "100%",
@@ -78,23 +83,18 @@ export const Leaderboard = () => {
               sx={{ borderBottomLeftRadius: 50, borderBottomRightRadius: 50 }}
             />
           </Paper>
-        </Box>
+        </MyBox>
       </>
     );
   };
 
   return (
     <>
-      <Tabs
+      <MyTabs
         value={value}
         onChange={handleChange}
         aria-label="icon label tabs example"
-        sx={{
-          width: "650px",
-          backgroundColor: "white",
-          borderTopLeftRadius: "50px",
-          borderTopRightRadius: "50px",
-        }}
+        
       >
         <Tab icon={<KitesurfingIcon />} label="Big Air" />
         <Tab icon={<SurfingIcon />} disabled={true} label="(coming soon)" />
@@ -103,8 +103,28 @@ export const Leaderboard = () => {
           disabled={true}
           label="Freestyle (coming soon)"
         /> */}
-      </Tabs>
+      </MyTabs>
       <Table />
     </>
   );
 };
+
+const normalWidth = "650px";
+
+const MyBox = styled(Box)({
+  width: normalWidth, 
+  height: "400px",
+  '@media (max-width: 768px)': {
+    width: mobileWidth
+  }
+})
+
+const MyTabs = styled(Tabs)({
+  width: normalWidth,
+  backgroundColor: "white",
+  borderTopLeftRadius: "50px",
+  borderTopRightRadius: "50px",
+  '@media (max-width: 768px)': {
+    width: mobileWidth
+  }
+})

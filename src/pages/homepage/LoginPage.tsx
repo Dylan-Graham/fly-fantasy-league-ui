@@ -60,7 +60,7 @@ export const LoginPage = ({
       onAnimationEnd={() => loginLoadingChanger(true)}
     >
       <div className="card green" css={purpleNavBarColor}>
-        <h4>Build Your Team and Join The Ranks!</h4>
+        <h4 className="text">Build Your Team and Join The Ranks!</h4>
         <AnimatedImage src={pickAthletePath} alt="pick-athlete-logo" />
       </div>
       <div className="card white">
@@ -83,4 +83,11 @@ const AnimatedImage = styled.img`
   width: 300px;
   border-radius: 5px;
   opacity: 1;
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 30vw;
+    margin-top: 0px
+  }
+
 `;

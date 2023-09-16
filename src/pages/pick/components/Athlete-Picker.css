@@ -5,6 +5,12 @@
     margin-left: 80px;
 }
 
+@media (max-width: 768px) {
+    .add-athlete-button {
+      margin-left: 5vw;
+    }
+  }
+
 .add-athlete-button:last-of-type {
     margin-bottom: 80px;
 }

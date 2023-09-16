@@ -26,4 +26,12 @@ const buttonStyle = css`
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 15px;
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 10px;
+    font-size: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `;

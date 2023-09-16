@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { flexRow, imageStyle, leftAlignText } from "../../style";
-import "./Account.css";
+import styled from "@emotion/styled";
+import { imageStyle } from "../../style";
 import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from "../homepage/components/Logout-Button";
 
@@ -10,26 +9,29 @@ export const Account = () => {
 
   if (isAuthenticated) {
     return (
-      <div css={accountStyle}>
-        <h1 css={leftAlignText}>Account</h1>
-        <div css={flexRow}>
+      <AccountStyle>
+        <div>
           <h2>Welcome back!</h2>
           <img src={user?.picture} alt={user?.name} css={imageStyle} />
         </div>
-        <p css={leftAlignText}>Name: {user?.nickname}</p>
-        <p css={leftAlignText}>Email: {user?.email}</p>
+        <p >Name: {user?.nickname}</p>
+        <p >Email: {user?.email}</p>
         <LogoutButton></LogoutButton>
-      </div>
+      </AccountStyle>
     );
   }
 
   return <div></div>;
 };
 
-const accountStyle = css`
-  background: white;
-  color: black;
-  box-shadow: 20px 20px 60px #22252c, -20px -20px 60px #2e333c;
-  border-radius: 50px;
-  padding: 25px;
-`;
+const AccountStyle = styled.div({
+  background: "white",
+  color: "black",
+  boxShadow: "20px 20px 60px #22252c, -20px -20px 60px #2e333c",
+  borderRadius: "50px",
+  padding: "25px",
+  width: "350px",
+  '@media (max-width: 768px)': {
+    width: "50vw"
+  }
+})
