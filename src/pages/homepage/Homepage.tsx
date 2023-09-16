@@ -111,6 +111,10 @@ const WhiteButton = styled.button({
     color: "#FFFFFF",
     border: "1px solid #FFFFFF",
   },
+
+  '@media (max-width: 768px)': {
+    width: '80vw',
+  },
 });
 
 const ColumnOne = styled.div({

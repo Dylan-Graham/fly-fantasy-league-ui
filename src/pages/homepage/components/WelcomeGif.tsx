@@ -26,4 +26,10 @@ const AnimatedImage = styled.img`
   height: 200px;
   width: 300px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 30vw;
+    margin-top: 0
+  }
 `;

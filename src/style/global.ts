@@ -7,13 +7,6 @@ export const imageStyle = css`
   width: 80px;
 `;
 
-export const flexRow = css`
-  display: flex;
-  flex-direction: row;
-  width: 350px;
-  justify-content: space-between;
-`;
-
 export const flexSpaceAroundRow = css`
   display: flex;
   flex-direction: row;
@@ -31,6 +24,8 @@ export const bigTopMargin = css`
 export const purpleNavBarColor = css`
   background: #672046;
 `;
+
+export const mobileWidth = "75vw";
 
 /**
  * Animation

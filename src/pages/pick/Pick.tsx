@@ -57,7 +57,7 @@ const Content = styled.div({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-evenly",
-  width: "95vw",
+  width: "100vw",
   marginTop: "100px",
   "@media (max-width: 768px)": {
     flexDirection: "column",

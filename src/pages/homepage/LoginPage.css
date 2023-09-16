@@ -9,6 +9,21 @@
     height: 500px;
 }
 
+@media (max-width: 768px) {
+    .card {
+      width: 40vw;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text {
+      font-size: 7px;
+    }
+}
+
 .white {
     background-color: #fff;
     border-top-right-radius: 5px;
