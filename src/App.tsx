@@ -10,11 +10,16 @@ import { Leaderboard } from "./pages/leaderboard/Leaderboard";
 import { Account } from "./pages/account/Account";
 import { Leagues } from "./pages/leagues/Leagues";
 import { LoadingRoute } from "./pages/LoadingRoute";
+import Hotjar from "@hotjar/browser";
 
 function App() {
   const { isLoading, isAuthenticated } = useAuth0();
   const [user, setUser] = useState<any>(null);
   const [loginLoading, setLoginLoading] = useState(false);
+  const siteId = 3689790;
+  const hotjarVersion = 6;
+
+  Hotjar.init(siteId, hotjarVersion);
 
   return (
     <Router>
