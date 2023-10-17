@@ -73,7 +73,10 @@ export const NewPicks = ({
         </div>
 
         <hr className="hr"></hr>
-        <Button onClick={collectPicks}>Save Pick</Button>
+        <div className="action-buttons">
+          <Button onClick={collectPicks}>Save Pick</Button>
+          <Button onClick={cancelPicks}>Cancel</Button>
+        </div>
       </div>
     );
   };
@@ -143,6 +146,10 @@ export const NewPicks = ({
       console.error(err);
     }
 
+    showExistingPickChanger(true);
+  };
+
+  const cancelPicks = () => {
     showExistingPickChanger(true);
   };
 

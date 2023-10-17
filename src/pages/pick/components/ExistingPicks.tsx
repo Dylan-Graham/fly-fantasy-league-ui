@@ -1,15 +1,36 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { UserContext } from "../../../context";
-import { useContext } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
+import { IconButton } from "@mui/material";
+import { EditOutlined } from "@mui/icons-material";
 
-export const ExistingPicks = () => {
+export const ExistingPicks = ({
+  showExistingPickChanger,
+}: {
+  showExistingPickChanger: Dispatch<SetStateAction<boolean>>;
+}) => {
   const userContext = useContext(UserContext);
+
+  const onClickEditPencil = () => {
+    showExistingPickChanger(false);
+  };
 
   return (
     <>
       <div css={existingPicksStyle}>
-        <h2>My Team</h2>
+        <div css={titlePositioning}>
+          <h2>My Team</h2>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            color="inherit"
+            style={{ height: 65 }}
+            onClick={onClickEditPencil}
+          >
+            <EditOutlined />
+          </IconButton>
+        </div>
         <hr css={hr}></hr>
 
         <div css={divStyle}>
@@ -58,7 +79,7 @@ const existingPicksStyle = css`
   box-shadow: 20px 20px 60px #22252c, -20px -20px 60px #2e333c;
   margin-bottom: 35px;
   @media (max-width: 768px) {
-    width: "386px";
+    width: 75vw;
   }
 `;
 
@@ -83,4 +104,11 @@ const athleteStyle = css`
   padding: 10px;
   margin-left: 80px;
   height: 50px;
+`;
+
+const titlePositioning = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;

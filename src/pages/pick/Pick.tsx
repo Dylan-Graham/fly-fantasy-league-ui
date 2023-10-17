@@ -1,9 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { EditOutlined } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context";
-import { flexSpaceAroundRow } from "../../style";
 import { NewPicks } from "./components/NewPicks";
 import { ExistingPicks } from "./components/ExistingPicks";
 import styled from "@emotion/styled";
@@ -15,34 +12,12 @@ export const Pick = () => {
     userContext.user?.picks != null
   );
 
-  const toggleShowExistingPick = () => {
-    setShowExistingPick(!showExistingPick);
-  };
-
-  const PickPencil = () => {
-    return (
-      <div css={flexSpaceAroundRow}>
-        <h1>Change Picks</h1>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          color="inherit"
-          style={{ height: 65 }}
-          onClick={toggleShowExistingPick}
-        >
-          <EditOutlined />
-        </IconButton>
-      </div>
-    );
-  };
-
   return (
     <>
       <Content>
         {showExistingPick ? (
           <>
-            <PickPencil />
-            <ExistingPicks />
+            <ExistingPicks showExistingPickChanger={setShowExistingPick} />
           </>
         ) : (
           <NewPicks showExistingPickChanger={setShowExistingPick} />

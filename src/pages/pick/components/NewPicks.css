@@ -16,3 +16,10 @@
   height: 1px;
   background-image: linear-gradient(to right, #d4d4d4, #d4d4d4, #d4d4d4);
 }
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
