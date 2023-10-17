@@ -20,7 +20,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "name",
-    headerName: "User",
+    headerName: "Name",
     minWidth: 50,
     flex: 0.3,
   },
