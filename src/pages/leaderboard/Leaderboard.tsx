@@ -16,8 +16,7 @@ const columns: GridColDef[] = [
     headerName: "Rank",
     minWidth: 50,
     flex: 0.3,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.rank || "-"}`,
+    valueGetter: (params: GridValueGetterParams) => `${params.row.rank || "-"}`,
   },
   {
     field: "name",
@@ -94,10 +93,9 @@ export const Leaderboard = () => {
         value={value}
         onChange={handleChange}
         aria-label="icon label tabs example"
-        
       >
-        <Tab icon={<KitesurfingIcon />} label="Big Air" />
-        <Tab icon={<SurfingIcon />} disabled={true} label="(coming soon)" />
+        <Tab icon={<KitesurfingIcon />} label="Global leaderboard" />
+        {/* <Tab icon={<SurfingIcon />} disabled={true} label="(coming soon)" /> */}
         {/* <Tab
           icon={<SnowboardingIcon />}
           disabled={true}
@@ -112,19 +110,19 @@ export const Leaderboard = () => {
 const normalWidth = "650px";
 
 const MyBox = styled(Box)({
-  width: normalWidth, 
+  width: normalWidth,
   height: "400px",
-  '@media (max-width: 768px)': {
-    width: mobileWidth
-  }
-})
+  "@media (max-width: 768px)": {
+    width: mobileWidth,
+  },
+});
 
 const MyTabs = styled(Tabs)({
   width: normalWidth,
   backgroundColor: "white",
   borderTopLeftRadius: "50px",
   borderTopRightRadius: "50px",
-  '@media (max-width: 768px)': {
-    width: mobileWidth
-  }
-})
+  "@media (max-width: 768px)": {
+    width: mobileWidth,
+  },
+});
